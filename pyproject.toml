@@ -1,0 +1,45 @@
+[project]
+name = "pythonModuleSample"
+version = "1.0.0"
+authors = [
+    {name = "Franco Arendholz", email = "franco@code-ops.de"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+description = "Very simple Python module for demonstration purposes."
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+license = { file = "LICENCE" }
+dependencies = [
+    'pytest >= 5.3.4, < 8.0.0',
+    'pytest-html >= 3.1.1, < 4.0.0',
+    'pytest-metadata >= 1.11.0, < 2.0.0',
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+packages = [
+    "pythonModuleSample",
+    "pythonModuleSample.Sample1"
+]
+
+[tool.setuptools.package-data]
+"*" = ["*.dll"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "--html=test-report.html",
+    "--self-contained-html"
+]
+testpaths = [
+    "pythonModuleSample/Sample1/tests"
+]
+python_files = [
+    "test_*.py"
+]
