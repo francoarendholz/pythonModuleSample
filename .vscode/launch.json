@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Pytest Sample1",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "test_sample1.py",
+                "-k",
+                "${input:pickTestNameSample1}",
+                "-s"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/pythonModuleSample/Sample1/tests",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Python-Debugger: Aktuelle Datei mit Argumenten",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": "${command:pickArgs}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "pickTestNameSample1",
+            "description": "Select Test to run",
+            "type": "pickString",
+            "options": [
+                "test_hello_world",
+                "test_hello_world_with_env_var",
+                "test_fixture_sample_env_var",
+                "test_get_some_var",
+                "test_get_some_var_with_change"
+            ],
+            "default": "NONE"
+        }
+    ]
+}
